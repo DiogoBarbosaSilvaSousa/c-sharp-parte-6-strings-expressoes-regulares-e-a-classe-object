@@ -1,2 +1,6 @@
-# c-sharp-parte-6-strings-expressoes-regulares-e-a-classe-object
-C# parte 6: Strings, expressões regulares e a classe Object
+# C# parte 6: Strings, expressões regulares e a classe Object
+- Aprenda a manipular strings no C#
+- Use os métodos IndexOf, Substring, Contains e outros da classe String
+- Use expressões regulares
+- Conheça a classe Regex
+- Use os métodos da classe Object
