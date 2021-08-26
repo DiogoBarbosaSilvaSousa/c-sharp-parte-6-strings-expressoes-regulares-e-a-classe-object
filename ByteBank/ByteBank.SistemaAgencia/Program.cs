@@ -11,7 +11,7 @@ namespace ByteBank.SistemaAgencia
     {
         static void Main(string[] args)
         {
-
+            TesteSubstring();
 
             Console.ReadLine();
         }
