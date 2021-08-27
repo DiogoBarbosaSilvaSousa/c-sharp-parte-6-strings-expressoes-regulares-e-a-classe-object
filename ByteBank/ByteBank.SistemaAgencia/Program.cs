@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace ByteBank.SistemaAgencia
@@ -19,7 +20,11 @@ namespace ByteBank.SistemaAgencia
 
             // TestUrlParametro();
 
-            TestVerificaUrl();
+            // TestVerificaUrl();
+
+            // TestExpressaoRegular();
+
+            TestExpressaoRegularRefinado();
 
             Console.ReadLine();
         }
@@ -116,5 +121,30 @@ namespace ByteBank.SistemaAgencia
             Console.WriteLine("IndexOf: " + (indiceByteBank == 0));
         }
 
+        public static void TestExpressaoRegular()
+        {
+            string padrao = "[0123456789][0123456789][0123456789][0123456789][-][0123456789][0123456789][0123456789][0123456789]";
+            string textoDeTeste = "Meu nome é Guilherme, me ligue em 4784-4546";
+            
+            Console.WriteLine(Regex.IsMatch(textoDeTeste, padrao));
+
+            Match resultado = Regex.Match(textoDeTeste, padrao);
+
+            Console.WriteLine(resultado.Value);
+
+        }
+
+        public static void TestExpressaoRegularRefinado()
+        {
+            string padrao = "[0-9]{4,5}[-]{0,1}[0-9]{4}";
+            string textoDeTeste = "Meu nome é Guilherme, me ligue em 4784-4546";
+
+            Console.WriteLine(Regex.IsMatch(textoDeTeste, padrao));
+
+            Match resultado = Regex.Match(textoDeTeste, padrao);
+
+            Console.WriteLine(resultado.Value);
+
+        }
     }
 }
