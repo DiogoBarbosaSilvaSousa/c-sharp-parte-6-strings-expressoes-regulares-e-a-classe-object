@@ -15,7 +15,11 @@ namespace ByteBank.SistemaAgencia
 
             // TesteExtratorUrl();
 
-            TestLength();
+            // TestLength();
+
+            // TestUrlParametro();
+
+            TestVerificaUrl();
 
             Console.ReadLine();
         }
@@ -84,6 +88,32 @@ namespace ByteBank.SistemaAgencia
             Console.WriteLine(palavra.Substring(indice));
             Console.WriteLine(palavra.Substring(indice + nomeArgumento.Length + 1));
             Console.ReadLine();
+        }
+
+        public static void TestUrlParametro()
+        {
+            string urlParametros = "http://www.bytebank.com/cambio?moedaOrigem=real&moedaDestino=dolar&valor=1500";
+            ExtratorValorDeArgumentosURL extratorDeValores = new ExtratorValorDeArgumentosURL(urlParametros);
+
+            string valor = extratorDeValores.GetValor("moedaOrigem");
+            Console.WriteLine("Valor de moedaOrigem: " + valor);
+
+            string valormoedaDestino = extratorDeValores.GetValor("moedaDestino");
+            Console.WriteLine("Valor de moedaDestino: " + valormoedaDestino);
+
+            Console.WriteLine(extratorDeValores.GetValor("valor"));
+        }
+
+        public static void TestVerificaUrl()
+        {
+            string urlTeste = "https://www.bytebank.com/cambio";
+            int indiceByteBank = urlTeste.IndexOf("https://www.bytebank.com");
+
+            Console.WriteLine("StartWith: " + urlTeste.StartsWith("https://www.bytebank.com"));
+            Console.WriteLine("EndsWith: " + urlTeste.EndsWith("cambio"));
+            Console.WriteLine("Contains: " + urlTeste.Contains("ByteBank"));
+
+            Console.WriteLine("IndexOf: " + (indiceByteBank == 0));
         }
 
     }
