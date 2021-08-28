@@ -111,6 +111,16 @@ namespace ByteBank.Modelos
 
             contaDestino.Depositar(valor);
         }
+
+        /// <summary>
+        /// Sobrescrevendo método ToString da classe ContaCorrente.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return $"Número {Numero}, Agência {Agencia}, Saldo {Saldo}";
+            // return "Número " + Numero + ", Agência " + Agencia + ", Saldo " + Saldo;
+        }
     }
 
 }
